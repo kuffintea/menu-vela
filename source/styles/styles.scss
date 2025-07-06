@@ -1,0 +1,14 @@
+/* GLOBAL */
+@import "./common/mixins.scss";
+@import "./common/fonts.scss";
+@import "./common/variables.scss";
+@import "./common/global.scss";
+@import "./common/visually-hidden.scss";
+
+/* BLOCKS */
+@import "./blocks/lang.scss";
+@import "./blocks/main-nav.scss";
+@import "./blocks/categories.scss";
+@import "./blocks/contacts.scss";
+@import "./blocks/submenu.scss";
+@import "./blocks/main-header.scss";

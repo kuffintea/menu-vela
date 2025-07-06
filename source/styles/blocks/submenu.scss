@@ -1,0 +1,96 @@
+.submenu {
+  @include font(16px, 20px);
+  padding: 0 16px 36px;
+
+  @media (min-width: $desktop) {
+    padding-bottom: 24px;
+  }
+}
+
+.submenu__list {
+  &--hidden {
+    display: none;
+  }
+
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
+
+.submenu__item:not(:last-child) {
+  margin-bottom: 16px;
+
+  @media (min-width: $desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.submenu__link {
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color-second;
+  transition: ease 0.3s color;
+
+  @media (min-width: $desktop) {
+    padding: 1px 8px;
+    border-bottom: none;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.submenu__info {
+  padding-top: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: end;
+  justify-content: space-between;
+
+  &--hidden {
+    display: none;
+  }
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.submenu__info-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  &::before {
+    @include pseudo-element(16px, 16px);
+    @include mask;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &--location::before {
+    mask-image: url("../../icons/stack.svg#pin");
+  }
+
+  &--time::before {
+    mask-image: url("../../icons/stack.svg#clock");
+  }
+}
+
+.submenu__categories {
+  margin-bottom: 40px;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    align-items: start;
+    gap: 16px 20px;
+    flex-wrap: wrap;
+    margin: -27px 0 0 95px;
+  }
+}

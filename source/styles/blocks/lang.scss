@@ -1,0 +1,43 @@
+.lang {
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+
+  &::before {
+    @include pseudo-element(16px, 16px);
+    @include mask("earth");
+    margin-right: 2px;
+    opacity: 50%;
+
+    @media (min-width: $desktop) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.lang__item {
+  margin-bottom: 0;
+
+  &:not(:last-child) {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    &::after {
+      @include pseudo-element(1px, 12px);
+      background-color: currentColor;
+    }
+  }
+}
+
+.lang__item-title {
+  opacity: 40%;
+  cursor: pointer;
+
+  &:has(+ input:checked) {
+    opacity: 100%;
+  }
+}

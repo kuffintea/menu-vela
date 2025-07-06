@@ -1,0 +1,111 @@
+.main-header {
+  font-family: $font-basic;
+  background-color: $color-alternate;
+  color: $color-basic;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  @media (max-width: ($desktop - 1px)) {
+    max-height: 100vh;
+    overflow: auto;
+  }
+}
+
+.main-header__wrapper {
+  @include font(14px, 18px);
+  background-color: #f4f4f4;
+  padding: 5px 15px;
+  display: flex;
+
+  @media (min-width: $desktop) {
+    padding: 7px 40px;
+    margin-bottom: 7px;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+.main-header__lang {
+  max-width: 50%;
+}
+
+.main-header__location {
+  display: none;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-right: 12px;
+
+    &::before {
+      @include pseudo-element(16px, 16px);
+      @include mask("pin");
+    }
+  }
+}
+
+.main-header__contacts {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+
+  &::before {
+    @include pseudo-element(16px, 16px);
+    @include mask("phone");
+  }
+
+  @media (min-width: $desktop) {
+    margin-left: 0;
+  }
+}
+
+.main-header__time {
+  display: none;
+
+  @media (min-width: $desktop) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.main-header__submenu {
+  display: none;
+
+  &--show {
+    display: block;
+  }
+
+  @media (min-width: $desktop) {
+    display: block;
+    padding: 0 40px 24px;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: ($desktop - 1px)) {
+  html:has(.main-header__submenu--show) {
+    overflow: hidden;
+  }
+
+  .main-header__nav:has(+ .main-header__submenu--show) .main-header__toggle {
+    background-color: $color-second;
+    border-color: $color-second;
+    padding: 7px;
+
+    &::before {
+      mask-image: url("../../icons/stack.svg#cross");
+      background-color: $color-basic;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

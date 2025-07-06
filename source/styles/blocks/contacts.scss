@@ -1,0 +1,50 @@
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+
+  @media (min-width: $desktop) {
+    gap: 10px;
+    margin-left: 8px;
+  }
+}
+
+.contacts__link {
+  padding: 10px;
+  background-color: #f4f4f4;
+  color: $color-basic;
+  border-radius: 4px;
+  transition: ease 0.3s background-color;
+
+  &::before {
+    @include pseudo-element(20px, 20px);
+    @include mask;
+    transition: ease 0.3s background-color;
+  }
+
+  &--tg::before {
+    mask-image: url("../../icons/stack.svg#logo-telegram");
+  }
+
+  &--wa::before {
+    mask-image: url("../../icons/stack.svg#logo-whatsapp");
+  }
+
+  @media (min-width: $desktop) {
+    padding: 12px;
+
+    &::before {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background-color: #d4d9dd;
+
+      &::before {
+        background-color: $color-accent;
+      }
+    }
+  }
+}
